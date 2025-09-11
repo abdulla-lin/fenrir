@@ -2,5 +2,5 @@
   "codename": "tetris",
   "bl2_ext_base": 281470698455351296,
   "bl2_ext_size": 16777216,
-  "notes": "CMF Phone 1 (tetris). 16MB LK at 0xFFFF000050700000."
+  "notes": "CMF Phone 1 (tetris). 16MB LK at 0x3E7FC1BE41CC000."
 }
