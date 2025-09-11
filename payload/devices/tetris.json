@@ -1,0 +1,6 @@
+{
+  "codename": "tetris",
+  "bl2_ext_base": "0xFFFF000050700000",
+  "bl2_ext_size": "0x01000000",
+  "notes": "CMF Phone 1 (tetris). 16MB LK at 0xFFFF000050700000."
+}
