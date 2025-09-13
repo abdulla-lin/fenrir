@@ -8,7 +8,7 @@ BLUE='\033[0;34m'
 BOLD='\033[1m'
 NC='\033[0m'
 
-DEVICE="${1:-pacman}"
+DEVICE="${1:-tetris}"
 DEVICE_LOWER=$(echo "$DEVICE" | tr '[:upper:]' '[:lower:]')
 
 if [ -n "$2" ]; then
