@@ -217,6 +217,7 @@ DEVICES = [
             replacement='e4 cd 01 94 1f 20 03 d5',
             match_mode=MatchMode.ALL,
             description='Skip verification check #10',
+        ),
          'guard_branch_0x7CEC': PatchStage(
             'guard_branch_0x7CEC',
             pattern='1f 05 00 71 21 04 00 54 f5 03 01 aa',
@@ -238,6 +239,7 @@ DEVICES = [
             match_mode=MatchMode.ALL,
             description='NOP verify-fail branch at 0x000081E4',
         ),   
+            
         },
         base=0xFFFF000050700000
     ),
