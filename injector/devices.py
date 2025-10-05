@@ -133,8 +133,8 @@ DEVICES = [
         {
             'sec_get_vfy_policy': PatchStage(
                 'sec_get_vfy_policy',
-                pattern='00 01 00 b4 fd 7b bf a9',
-                replacement='00 00 80 52 c0 03 5f d6',
+                pattern='fd 7b c2 a8 c0 03 5f d6 a0 00 80 52 c0 03 5f d6 00 01 00 b4 fd 7b bf a9 fd 03 00 91 07 00 00 94 2f 00 00 94 00 00 00 12',
+                replacement='fd 7b c2 a8 c0 03 5f d6 a0 00 80 52 c0 03 5f d6 00 00 80 52 c0 03 5f d6 fd 03 00 91 07 00 00 94 2f 00 00 94 00 00 00 12',
                 match_mode=MatchMode.ALL,
                 description='Don\'t enforce secure boot policy',
             ),
