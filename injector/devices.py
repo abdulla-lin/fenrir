@@ -176,7 +176,6 @@ DEVICES = [
     match_mode=MatchMode.ALL,
     description='Skip extra Tetris verification check #4',
 ),
-
 'bypass_extra_check_5': PatchStage(
     'bypass_extra_check_5',
     pattern='48 84 01 94 60 01 00 34',
@@ -184,6 +183,41 @@ DEVICES = [
     match_mode=MatchMode.ALL,
     description='Skip extra Tetris verification check #5',
 ),
+'bypass_extra_check_6': PatchStage(
+            'bypass_extra_check_6',
+            pattern='33 3f 00 94 a0 01 00 34',
+            replacement='33 3f 00 94 1f 20 03 d5',
+            match_mode=MatchMode.ALL,
+            description='Skip verification check #6',
+        ),
+        'bypass_extra_check_7': PatchStage(
+            'bypass_extra_check_7',
+            pattern='2c 3f 00 94 c0 00 00 34',
+            replacement='2c 3f 00 94 1f 20 03 d5',
+            match_mode=MatchMode.ALL,
+            description='Skip verification check #7',
+        ),
+        'bypass_extra_check_8': PatchStage(
+            'bypass_extra_check_8',
+            pattern='8a ce 01 94 a0 00 00 34',
+            replacement='8a ce 01 94 1f 20 03 d5',
+            match_mode=MatchMode.ALL,
+            description='Skip verification check #8',
+        ),
+        'bypass_extra_check_9': PatchStage(
+            'bypass_extra_check_9',
+            pattern='2e 01 00 94 60 01 00 34',
+            replacement='2e 01 00 94 1f 20 03 d5',
+            match_mode=MatchMode.ALL,
+            description='Skip verification check #9',
+        ),
+        'bypass_extra_check_10': PatchStage(
+            'bypass_extra_check_10',
+            pattern='e4 cd 01 94 a0 04 00 34',
+            replacement='e4 cd 01 94 1f 20 03 d5',
+            match_mode=MatchMode.ALL,
+            description='Skip verification check #10',
+        ),   
         },
         base=0xFFFF000050700000
     ),
