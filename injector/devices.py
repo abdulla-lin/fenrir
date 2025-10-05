@@ -217,6 +217,26 @@ DEVICES = [
             replacement='e4 cd 01 94 1f 20 03 d5',
             match_mode=MatchMode.ALL,
             description='Skip verification check #10',
+         'guard_branch_0x7CEC': PatchStage(
+            'guard_branch_0x7CEC',
+            pattern='1f 05 00 71 21 04 00 54 f5 03 01 aa',
+            replacement='1f 05 00 71 1f 20 03 d5 f5 03 01 aa',
+            match_mode=MatchMode.ALL,
+            description='NOP verify-fail branch at 0x00007CEC',
+        ),
+        'guard_branch_0x7DB4': PatchStage(
+            'guard_branch_0x7DB4',
+            pattern='1f 05 00 71 21 03 00 54 f4 03 00 aa',
+            replacement='1f 05 00 71 1f 20 03 d5 f4 03 00 aa',
+            match_mode=MatchMode.ALL,
+            description='NOP verify-fail branch at 0x00007DB4',
+        ),
+        'guard_branch_0x81E4': PatchStage(
+            'guard_branch_0x81E4',
+            pattern='1f 0d 00 71 60 00 00 54 17 97 01 94',
+            replacement='1f 0d 00 71 1f 20 03 d5 17 97 01 94',
+            match_mode=MatchMode.ALL,
+            description='NOP verify-fail branch at 0x000081E4',
         ),   
         },
         base=0xFFFF000050700000
