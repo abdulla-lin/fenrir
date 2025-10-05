@@ -145,13 +145,45 @@ DEVICES = [
                 match_mode=MatchMode.ALL,
                 description='Force boot state to always be set to green',
             ),
-            'bypass_security_control': PatchStage(
-                'bypass_security_control',
-                pattern='e9 84 01 94 20 02 00 34',
-                replacement='e9 84 01 94 1f 20 03 d5',
-                match_mode=MatchMode.ALL,
-                description='Skip security error branch - BL to 0x6A610 + CBZ W0',
-            ),
+            'bypass_extra_check_1': PatchStage(
+    'bypass_extra_check_1',
+    pattern='f8 53 00 94 40 01 00 34',
+    replacement='f8 53 00 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Skip extra Tetris verification check #1',
+),
+
+'bypass_extra_check_2': PatchStage(
+    'bypass_extra_check_2',
+    pattern='db 72 00 94 40 02 00 34',
+    replacement='db 72 00 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Skip extra Tetris verification check #2',
+),
+
+'bypass_extra_check_3': PatchStage(
+    'bypass_extra_check_3',
+    pattern='e9 84 01 94 20 02 00 34',  # This covers the first bypass
+    replacement='e9 84 01 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Skip extra Tetris verification check #3',
+),
+
+'bypass_extra_check_4': PatchStage(
+    'bypass_extra_check_4',
+    pattern='4d 84 01 94 20 01 00 34',
+    replacement='4d 84 01 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Skip extra Tetris verification check #4',
+),
+
+'bypass_extra_check_5': PatchStage(
+    'bypass_extra_check_5',
+    pattern='48 84 01 94 60 01 00 34',
+    replacement='48 84 01 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Skip extra Tetris verification check #5',
+),
         },
         base=0xFFFF000050700000
     ),
