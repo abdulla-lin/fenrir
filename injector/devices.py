@@ -145,12 +145,12 @@ DEVICES = [
                 match_mode=MatchMode.ALL,
                 description='Force boot state to always be set to green',
             ),
-            'bypass_cbnz_w0': PatchStage(
-            'bypass_cbnz_w0',
-            pattern='00 01 00 35',
-            replacement='1f 20 03 d5',
-            match_mode=MatchMode.ALL,
-            description='Skip CBNZ W0 branches - ALLOWS MODIFIED PARTITIONS',
+            'bypass_security_control': PatchStage(
+                'bypass_security_control',
+                pattern='e9 84 01 94 20 02 00 34',
+                replacement='e9 84 01 94 1f 20 03 d5',
+                match_mode=MatchMode.ALL,
+                description='Skip security error branch - BL to 0x6A610 + CBZ W0',
             ),
         },
         base=0xFFFF000050700000
