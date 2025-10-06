@@ -145,175 +145,80 @@ DEVICES = [
                 match_mode=MatchMode.ALL,
                 description='Force boot state to always be set to green',
             ),
-            'bypass_extra_check_1': PatchStage(
-    'bypass_extra_check_1',
+            # Add these new, previously unmentioned bypasses to your Tetris device block.
+
+'bypass_tetris_only_1': PatchStage(
+    'bypass_tetris_only_1',
+    pattern='cc 99 00 94 40 05 00 35',
+    replacement='cc 99 00 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Bypass unique Tetris verification gate #1 at 0x0000556C',
+),
+'bypass_tetris_only_2': PatchStage(
+    'bypass_tetris_only_2',
+    pattern='94 99 00 94 e0 fe ff 35',
+    replacement='94 99 00 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Bypass unique Tetris verification gate #2 at 0x0000564C',
+),
+'bypass_tetris_only_3': PatchStage(
+    'bypass_tetris_only_3',
+    pattern='8b 67 00 94 e0 04 00 35',
+    replacement='8b 67 00 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Bypass unique Tetris verification gate #3 at 0x000059FC',
+),
+'bypass_tetris_only_4': PatchStage(
+    'bypass_tetris_only_4',
     pattern='f8 53 00 94 40 01 00 34',
     replacement='f8 53 00 94 1f 20 03 d5',
     match_mode=MatchMode.ALL,
-    description='Skip extra Tetris verification check #1',
+    description='Bypass unique Tetris verification gate #4 at 0x00005B74',
+),
+'bypass_tetris_only_5': PatchStage(
+    'bypass_tetris_only_5',
+    pattern='66 fd ff 97 20 01 00 35',
+    replacement='66 fd ff 97 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Bypass unique Tetris verification gate #5 at 0x00007448',
+),
+'bypass_tetris_only_6': PatchStage(
+    'bypass_tetris_only_6',
+    pattern='6c 8a 01 94 60 ff ff 35',
+    replacement='6c 8a 01 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Bypass unique Tetris verification gate #6 at 0x00007C60',
+),
+'bypass_tetris_only_7': PatchStage(
+    'bypass_tetris_only_7',
+    pattern='57 8a 01 94 60 ff ff 35',
+    replacement='57 8a 01 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Bypass unique Tetris verification gate #7 at 0x00007CB4',
+),
+'bypass_tetris_only_8': PatchStage(
+    'bypass_tetris_only_8',
+    pattern='2e 8a 01 94 80 fe ff 35',
+    replacement='2e 8a 01 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Bypass unique Tetris verification gate #8 at 0x00007FB0',
+),
+'bypass_tetris_only_9': PatchStage(
+    'bypass_tetris_only_9',
+    pattern='01 8a 01 94 60 00 00 35',
+    replacement='01 8a 01 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Bypass unique Tetris verification gate #9 at 0x00008064',
+),
+'bypass_tetris_only_10': PatchStage(
+    'bypass_tetris_only_10',
+    pattern='dc 89 01 94 40 00 00 35',
+    replacement='dc 89 01 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Bypass unique Tetris verification gate #10 at 0x000080F8',
 ),
 
-'bypass_extra_check_2': PatchStage(
-    'bypass_extra_check_2',
-    pattern='db 72 00 94 40 02 00 34',
-    replacement='db 72 00 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Skip extra Tetris verification check #2',
-),
 
-'bypass_extra_check_3': PatchStage(
-    'bypass_extra_check_3',
-    pattern='e9 84 01 94 20 02 00 34',  # This covers the first bypass
-    replacement='e9 84 01 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Skip extra Tetris verification check #3',
-),
-
-'bypass_extra_check_4': PatchStage(
-    'bypass_extra_check_4',
-    pattern='4d 84 01 94 20 01 00 34',
-    replacement='4d 84 01 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Skip extra Tetris verification check #4',
-),
-'bypass_extra_check_5': PatchStage(
-    'bypass_extra_check_5',
-    pattern='48 84 01 94 60 01 00 34',
-    replacement='48 84 01 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Skip extra Tetris verification check #5',
-),
-'bypass_extra_check_6': PatchStage(
-            'bypass_extra_check_6',
-            pattern='33 3f 00 94 a0 01 00 34',
-            replacement='33 3f 00 94 1f 20 03 d5',
-            match_mode=MatchMode.ALL,
-            description='Skip verification check #6',
-        ),
-        'bypass_extra_check_7': PatchStage(
-            'bypass_extra_check_7',
-            pattern='2c 3f 00 94 c0 00 00 34',
-            replacement='2c 3f 00 94 1f 20 03 d5',
-            match_mode=MatchMode.ALL,
-            description='Skip verification check #7',
-        ),
-        'bypass_extra_check_8': PatchStage(
-            'bypass_extra_check_8',
-            pattern='8a ce 01 94 a0 00 00 34',
-            replacement='8a ce 01 94 1f 20 03 d5',
-            match_mode=MatchMode.ALL,
-            description='Skip verification check #8',
-        ),
-        'bypass_extra_check_9': PatchStage(
-            'bypass_extra_check_9',
-            pattern='2e 01 00 94 60 01 00 34',
-            replacement='2e 01 00 94 1f 20 03 d5',
-            match_mode=MatchMode.ALL,
-            description='Skip verification check #9',
-        ),
-        'bypass_extra_check_10': PatchStage(
-            'bypass_extra_check_10',
-            pattern='e4 cd 01 94 a0 04 00 34',
-            replacement='e4 cd 01 94 1f 20 03 d5',
-            match_mode=MatchMode.ALL,
-            description='Skip verification check #10',
-        # Function-Cluster Bypasses for Tetris
-        ),
-'bypass_func_69714_1': PatchStage(
-    'bypass_func_69714_1',
-    pattern='96 6a 01 94 16 1d 00 35',
-    replacement='96 6a 01 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x69714 site 1'
-),
-'bypass_func_69714_2': PatchStage(
-    'bypass_func_69714_2',
-    pattern='7e 6a 01 94 d6 1a 00 35',
-    replacement='7e 6a 01 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x69714 site 2'
-),
-'bypass_func_69714_3': PatchStage(
-    'bypass_func_69714_3',
-    pattern='4d 6a 01 94 76 15 00 35',
-    replacement='4d 6a 01 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x69714 site 3'
-),
-
-'bypass_func_1f8bd4_1': PatchStage(
-    'bypass_func_1f8bd4_1',
-    pattern='4f 1c 01 94 39 01 00 34',
-    replacement='4f 1c 01 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x1F8BD4 site 1'
-),
-'bypass_func_1f8bd4_2': PatchStage(
-    'bypass_func_1f8bd4_2',
-    pattern='60 f0 00 94 b3 00 00 34',
-    replacement='60 f0 00 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x1F8BD4 site 2'
-),
-'bypass_func_1f8bd4_3': PatchStage(
-    'bypass_func_1f8bd4_3',
-    pattern='86 e6 00 94 b3 00 00 34',
-    replacement='86 e6 00 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x1F8BD4 site 3'
-),
-
-'bypass_func_13b784_1': PatchStage(
-    'bypass_func_13b784_1',
-    pattern='1f f3 00 94 37 1f 00 35',
-    replacement='1f f3 00 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x13B784 site 1'
-),
-'bypass_func_13b784_2': PatchStage(
-    'bypass_func_13b784_2',
-    pattern='80 f2 00 94 18 0c 00 35',
-    replacement='80 f2 00 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x13B784 site 2'
-),
-'bypass_func_13b784_3': PatchStage(
-    'bypass_func_13b784_3',
-    pattern='74 f2 00 94 57 0b 00 35',
-    replacement='74 f2 00 94 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x13B784 site 3'
-),
-
-'bypass_func_341a4_1': PatchStage(
-    'bypass_func_341a4_1',
-    pattern='e4 36 ff 97 01 08 00 34',
-    replacement='e4 36 ff 97 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x341A4 site 1'
-),
-'bypass_func_341a4_2': PatchStage(
-    'bypass_func_341a4_2',
-    pattern='34 a5 fe 97 42 01 00 34',
-    replacement='34 a5 fe 97 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x341A4 site 2'
-),
-
-'bypass_func_1cdb38_1': PatchStage(
-    'bypass_func_1cdb38_1',
-    pattern='f8 5f ff 97 01 08 00 34',
-    replacement='f8 5f ff 97 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x1CDB38 site 1'
-),
-'bypass_func_1cdb38_2': PatchStage(
-    'bypass_func_1cdb38_2',
-    pattern='e4 d4 fe 97 42 01 00 34',
-    replacement='e4 d4 fe 97 1f 20 03 d5',
-    match_mode=MatchMode.ALL,
-    description='Bypass hub 0x1CDB38 site 2'
-),
             
         },
         base=0xFFFF000050700000
