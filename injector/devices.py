@@ -165,6 +165,20 @@ DEVICES = [
     match_mode=MatchMode.ALL,
     description='Skip security error branch - always execute commands (Tetris equivalent)',
 ),
+           'bypass_security_control_2': PatchStage(
+               'bypass_security_control_2', 
+               pattern='19 a0 00 94 00 01 f8 37', 
+               replacement='19 a0 00 94 1f 20 03 d5', 
+               match_mode=MatchMode.ALL, 
+               description='Skip security error branch #2'
+           ),
+'bypass_security_control_3': PatchStage(
+    'bypass_security_control_3',
+    pattern='f6 9f 00 94 e0 00 f8 37', 
+    replacement='f6 9f 00 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL, 
+    description='Skip security error branch #3'
+), 
         },
         base=0xFFFF000050700000
     ),
