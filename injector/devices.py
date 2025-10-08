@@ -157,7 +157,14 @@ DEVICES = [
                 replacement='88 00 80 52 08 00 00 b9 00 00 80 52 c0 03 5f d6',
                 match_mode=MatchMode.ALL,
                 description='Force lock state to always be LKS_LOCK',
-            )
+            ),
+            'bypass_security_control': PatchStage(
+    'bypass_security_control',
+    pattern='ff 46 01 94 40 00 00 36',
+    replacement='ff 46 01 94 1f 20 03 d5',
+    match_mode=MatchMode.ALL,
+    description='Skip security error branch - always execute commands (Tetris equivalent)',
+),
         },
         base=0xFFFF000050700000
     ),
