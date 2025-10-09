@@ -158,20 +158,6 @@ DEVICES = [
                 match_mode=MatchMode.ALL,
                 description='Force lock state to always be LKS_LOCK',
             ),
-            sec_get_vfy_policy': PatchStage(
-            'sec_get_vfy_policy',
-            pattern='00 01 00 b4 fd 7b bf a9',
-            replacement='00 00 80 52 c0 03 5f d6',
-            match_mode=MatchMode.ALL,
-            description='Disable secure boot policy enforcement',
-        ),
-        'force_green_state': PatchStage(
-            'force_green_state',
-            pattern='68 04 00 f0 00 d9 04 b9 c0 03 5f d6',
-            replacement='68 04 00 f0 1f d9 04 b9 c0 03 5f d6',
-            match_mode=MatchMode.ALL,
-            description='Force green boot state',
-        ),
         'bypass_security_control': PatchStage(
             'bypass_security_control',
             pattern='ff 46 01 94 40 00 00 36',
